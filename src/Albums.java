@@ -19,12 +19,13 @@ public class Albums {
     }
     public void getallsongs() {
         for (String song : songlist) {
-            System.out.println(song);
+            System.out.println(song.split("#")[0]);
         }
     }
     public void getselectedsong(int index){
-        String[] mus =songlist.get(index).split("#");
-        Music music = new Music(mus[0], artistName, albumName, genre, Integer.getInteger(mus[1]));
+        String[] mus =songlist.get(index-1).split("#");
+        System.out.println(songlist.get(index-1));
+        Music music = new Music(mus[0], artistName, albumName, genre, Integer.parseInt(mus[1]));
         music.print();
     }
     void getalbumfromfile() {
@@ -34,7 +35,7 @@ public class Albums {
                 Scanner sc = new Scanner(file);
                 while(sc.hasNextLine()) {
                     String line = sc.nextLine();
-                    songlist.add(line.split("#")[0]);
+                    songlist.add(line);
                 }
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
@@ -56,5 +57,19 @@ public class Albums {
                 throw new RuntimeException(e);
             }
         }
+    }
+    public String getname(){
+        return albumName;
+    }
+    public void compare(int f1, int f2) {
+        String[] v1 = songlist.get(f1).split("#"), v2 = songlist.get(f2).split("#");
+        Music m1 = new Music(v1[0], artistName, albumName, genre, Integer.parseInt(v1[1]));
+        Music m2 = new Music(v2[0], artistName, albumName, genre, Integer.parseInt(v2[1]));
+        System.out.println("Songs: "+ v1[0]+" "+v2[0]);
+        System.out.println("Artists: "+ m1.get("artist")+" "+m2.get("artist"));
+        System.out.println("Albums: "+ m1.get("album")+" "+m2.get("album"));
+        System.out.println("Genres: "+ m1.get("genre")+" "+m2.get("genre"));
+        System.out.println("length: "+ m1.get("length")+" "+m2.get("length"));
+
     }
 }

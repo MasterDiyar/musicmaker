@@ -11,7 +11,7 @@ public class Artist {
         try {
             this.name = name;
             File file = new File("src/artist/" + name + ".txt");
-            if (!file.exists()) {
+            if (file.exists()) {
                 Scanner sc = new Scanner(file);
                 while (sc.hasNextLine()) {
                     String line = sc.nextLine();
@@ -46,7 +46,7 @@ public class Artist {
             System.out.println(album);
         }
     }
-    public String getName() {
+    public String getname() {
         return name;
     }
     public String getAlbums(int index) {
