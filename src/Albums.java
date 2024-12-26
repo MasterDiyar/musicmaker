@@ -12,8 +12,10 @@ public class Albums {
     private String genre;
     private List<String> songlist = new ArrayList<String>();
     public Albums(String albumName, String artistName) {
+        Artist artist = new Artist(artistName);
+        artist.addAlbum(albumName);
         this.albumName = albumName;
-        this.artistName = artistName;
+        this.artistName = artist.getname();
         this.genre = "";
         getalbumfromfile();
     }
@@ -37,13 +39,14 @@ public class Albums {
                     String line = sc.nextLine();
                     songlist.add(line);
                 }
+                sc.close();
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }
         }
     }
     public void setalbum(String songnames) {
-        File file = new File("src/albums"+albumName+artistName+".txt");
+        File file = new File("src/albums/"+albumName+artistName+".txt");
         if (!file.exists()) {
             try{
             file.createNewFile();
