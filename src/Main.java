@@ -44,6 +44,10 @@ public class Main {
                     albums.compare(Integer.parseInt(words[2]), Integer.parseInt(words[3]));
                     break;
                 case "aboutartist", "5":
+                    String name = scanner.nextLine();
+                    Artist artist = new Artist(name);
+                    System.out.println("Name: "+artist.getname() +"\nalbums:");
+                    artist.printAlbums();
                     break;
             }
 
