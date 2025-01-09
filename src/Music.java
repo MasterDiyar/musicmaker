@@ -33,4 +33,8 @@ public class Music {
                 return "not find yet";
         }
     }
+    @Override
+    public String toString (){
+        return name+"#"+artist.getname()+"#" + album.getname() + "#" + String.valueOf(len);
+    }
 }

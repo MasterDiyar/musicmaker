@@ -45,6 +45,10 @@ public class Albums {
             }
         }
     }
+    @Override
+    public void ToString(){
+
+    }
     public void setalbum(String songnames) {
         File file = new File("src/albums/"+albumName+artistName+".txt");
         if (!file.exists()) {
@@ -73,6 +77,6 @@ public class Albums {
         System.out.println("Albums: "+ m1.get("album")+" "+m2.get("album"));
         System.out.println("Genres: "+ m1.get("genre")+" "+m2.get("genre"));
         System.out.println("length: "+ m1.get("length")+" "+m2.get("length"));
-
     }
+
 }

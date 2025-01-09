@@ -2,12 +2,24 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        /*SecMain a = new SecMain();
+        a.a();*/
+
+
+
+
+
         Scanner scanner = new Scanner(System.in);
         //String input = scanner.nextLine();
         //String[] words = input.split(" ");
         Albums albums;
         String[] words;
-        System.out.print("for making an album: enter 'makealbum' or '0'\n for getting a album: enter 'getalbum' or '1'\n for get one song from album enter 'getsongfromalbum' or '2'\n for getting song: input 'getsong' or '3'\n for comparing songs from albums input 'comparesongsfromonealbum' or '4'");
+        System.out.print("""
+                  for making an album: enter 'makealbum' or '0'
+                  for getting a album: enter 'getalbum' or '1'
+                  for get one song from album enter 'getsongfromalbum' or '2'
+                  for getting song: input 'getsong' or '3'
+                  for comparing songs from albums input 'comparesongsfromonealbum' or '4'""");
         boolean a = true;
         while (a) {
             switch (scanner.nextLine()) {
@@ -18,7 +30,6 @@ public class Main {
                         albums = new Albums(words[0], words[1]);
                         String songs = scanner.nextLine();
                         albums.setalbum(songs);
-
                     break;
                 case "getalbum", "1":
                     System.out.println("For get list of songs in album enter <album name> <artist name>:");
@@ -49,6 +60,8 @@ public class Main {
                     System.out.println("Name: "+artist.getname() +"\nalbums:");
                     artist.printAlbums();
                     break;
+                case "makeplaylist" , "6":
+                    
             }
 
         }

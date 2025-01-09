@@ -49,7 +49,14 @@ public class Artist {
     public String getname() {
         return name;
     }
-    public String getAlbums(int index) {
+    public String getAlbums(int index)  {
         return albums.get(index-1);
     }
+    @Override
+    public String toString(){
+        StringBuilder lll = new StringBuilder();
+        for (String k : albums) lll.append(k).append(" ");
+        return name + "\nSongs: " + lll;
+    }
+
 }
