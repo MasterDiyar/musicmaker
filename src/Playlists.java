@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Playlists
+public class Playlists extends Mixxxtape
 {
     public String Name;
     public List<String> songs = new ArrayList<String>();
     public int length = 0;
     public Playlists(String name){
         Name = name;
-
     }
 
     void reader(){
@@ -30,5 +29,21 @@ public class Playlists
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    @Override
+    public String getallsongs() {
+        String full = "";
+        for (String song : songs) {
+            full +=song.split("#")[0];
+        }
+        return full;
+    }
+    public int getlength(){
+        return length;
+    }
+    @Override
+    public String getname() {
+        return Name;
     }
 }

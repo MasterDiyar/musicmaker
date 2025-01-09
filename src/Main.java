@@ -61,7 +61,12 @@ public class Main {
                     artist.printAlbums();
                     break;
                 case "makeplaylist" , "6":
-                    
+
+                    break;
+
+                case "exit":
+                    a = false;
+                    break;
             }
 
         }

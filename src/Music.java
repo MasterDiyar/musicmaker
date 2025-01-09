@@ -20,18 +20,13 @@ public class Music {
         System.out.println("Length: " + len);
     }
     public String get(String what){
-        switch (what){
-            case "artist":
-                return artist.getname();
-            case "album":
-                return album.getname();
-            case "genre":
-                return genre;
-            case "length":
-                return len;
-            default:
-                return "not find yet";
-        }
+        return switch (what) {
+            case "artist" -> artist.getname();
+            case "album" -> album.getname();
+            case "genre" -> genre;
+            case "length" -> len;
+            default -> "not find yet";
+        };
     }
     @Override
     public String toString (){

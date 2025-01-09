@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Albums {
+public class Albums extends Mixxxtape{
     private String albumName;
     private String artistName;
     private String genre;
@@ -19,10 +19,15 @@ public class Albums {
         this.genre = "";
         getalbumfromfile();
     }
-    public void getallsongs() {
+
+
+    @Override
+    public String getallsongs() {
+        String full = "";
         for (String song : songlist) {
-            System.out.println(song.split("#")[0]);
+            full += song.split("#")[0]+"\n";
         }
+        return full;
     }
     public void getselectedsong(int index){
         String[] mus =songlist.get(index-1).split("#");
@@ -44,10 +49,6 @@ public class Albums {
                 throw new RuntimeException(e);
             }
         }
-    }
-    @Override
-    public void ToString(){
-
     }
     public void setalbum(String songnames) {
         File file = new File("src/albums/"+albumName+artistName+".txt");
