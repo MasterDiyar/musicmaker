@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -78,6 +79,31 @@ public class Albums extends Mixxxtape{
         System.out.println("Albums: "+ m1.get("album")+" "+m2.get("album"));
         System.out.println("Genres: "+ m1.get("genre")+" "+m2.get("genre"));
         System.out.println("length: "+ m1.get("length")+" "+m2.get("length"));
+    }
+    public void GetAllAlbums(){
+        File file = new File("src/albums");
+        String content[] = file.list();
+        System.out.println("all albums");
+        for (String song : content) {
+            int lastDotIndex = song.lastIndexOf('.');
+            String fileName = (lastDotIndex == -1) ? song : song.substring(0, lastDotIndex);
+            System.out.println(fileName);
+        }
+    }
+    public void SortAllAlbums(){
+        File file = new File("src/albums");
+        String content[] = file.list();
+        System.out.println("all albums sorted");
+        String[] fileNWE = new String[content.length];
+        for (int i = 0; i < content.length; i++) {
+            int lastDotIndex = content[i].lastIndexOf('.');
+            fileNWE[i] = (lastDotIndex == -1)
+                    ? content[i]
+                    : content[i].substring(0, lastDotIndex);
+        }
+        Arrays.sort(fileNWE);
+        for (var a : fileNWE) System.out.println(a);
+
     }
 
 }
